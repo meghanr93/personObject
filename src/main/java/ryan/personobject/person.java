@@ -7,11 +7,31 @@ This program a person object is to be created.
  */
 public class person {
     
+    private String name;
     private int age;
     private double height;
     private String job;
     private double weight;
     
+    public person(){
+        name="";
+        age=0;
+        height=0;
+        job="";
+        weight=0;
+    }
+    
+    public person(String n,int a,double h,String j,double w){
+        setName(n);
+        setAge(a);
+        setHeight(h);
+        setJob(j);
+        setWeight(w);
+    }
+    
+    public void setName(String n){
+        name=n;
+    } 
     public void setAge(int a){
         age=a;
     } 
