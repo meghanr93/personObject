@@ -29,6 +29,26 @@ public class person {
         setWeight(w);
     }
     
+    public String getName(){
+        return name;
+    }
+    
+    public int getAge(){
+        return age;
+    }
+    
+    public double getHeight(){
+        return height;
+    }
+    
+    public double getWeight(){
+        return weight;
+    }
+    
+    public String getJob(){
+        return job;
+    }
+    
     public void setName(String n){
         name=n;
     } 
