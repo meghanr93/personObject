@@ -40,6 +40,7 @@ public class FXMLController implements Initializable {
     ArrayList<person> people = new ArrayList();
     
     void error(String text){
+        /* Error alert method. */
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Error");
             alert.setHeaderText(null);
@@ -75,6 +76,7 @@ public class FXMLController implements Initializable {
     
     @FXML
     void btnChangeAge(ActionEvent event) {
+        /* Changes the age of the selected person. */
         try{
         if (Integer.parseInt(txtAge.getText())<=0){
                error("Age cannot be 0 or less."); 
@@ -86,12 +88,13 @@ public class FXMLController implements Initializable {
         }
         }
         catch(Exception ex){
-            error("Age text field is invalid. Ensure a valid number is inputted.");
+            error("Please select a person and/or ensure a valid age is inputted.");
         }
     }
 
     @FXML
     void btnChangeHeight(ActionEvent event) {
+        /* Changes the height of the selected person. */
         try{
         if (Double.parseDouble(txtHeight.getText())<=0){
                error("Height cannot be 0 or less."); 
@@ -103,36 +106,39 @@ public class FXMLController implements Initializable {
         }
         }
         catch(Exception ex){
-            error("Height text field is invalid. Ensure a valid number is inputted.");
+            error("Please select a person and/or ensure a valid height number is inputted.");
         }
     }
 
     @FXML
     void btnChangeJob(ActionEvent event) {
+        /* Changes the job of the selected person. */
         try{
         int selectedIndex = lstPeople.getSelectionModel().getSelectedIndex();  //gets the select spot from the listBox
         people.get(selectedIndex).setJob(txtJob.getText());
         listUpdate();
         }
         catch(Exception ex){
-            error("Job text field is invalid. Enter a job.");
+            error("Please select a person and/or enter a job into the text field.");
         }
     }
 
     @FXML
     void btnChangeName(ActionEvent event) {
+        /* Changes the name of the selected person. */
         try{
         int selectedIndex = lstPeople.getSelectionModel().getSelectedIndex();  //gets the select spot from the listBox
         people.get(selectedIndex).setName(txtName.getText());
         listUpdate();
         }
         catch(Exception ex){
-            error("Name text field is invalid. Enter a name.");
+            error("Please select a person and/or enter a name.");
         }
     }
 
     @FXML
     void btnChangeWeight(ActionEvent event) {
+        /* Changes the weight of the selected person. */
         try{
         if (Double.parseDouble(txtWeight.getText())<=0){
                error("Weight cannot be 0 or less."); 
@@ -144,16 +150,21 @@ public class FXMLController implements Initializable {
         }
         }
         catch(Exception ex){
-            error("Weight text field is invalid. Ensure a valid number is inputted.");
+            error("Please select a person and/or ensure a valid weight number is inputted.");
         }
     }
 
     @FXML
     void btnClear(ActionEvent event) {
         /* Removes the selected person from the list. */
+        try{
         int selectedIndex = lstPeople.getSelectionModel().getSelectedIndex();  //gets the select spot from the listBox
         people.remove(selectedIndex);
         listUpdate();
+        }
+        catch(Exception ex){
+            error("Please select a person from the list.");
+        }
     }
 
     @FXML
@@ -165,30 +176,54 @@ public class FXMLController implements Initializable {
     
     @FXML
     void btnShowAge(ActionEvent event) {
+        /* Shows the age of the selected person. */
+        try{
         int selectedIndex = lstPeople.getSelectionModel().getSelectedIndex();  //gets the select spot from the listBox
         lblBox.setText("" + people.get(selectedIndex).getAge());
         listUpdate();
+        }
+        catch(Exception ex){
+            error("Please select a person from the list.");
+        }
     }
 
     @FXML
     void btnShowHeight(ActionEvent event) {
+        /* Shows the height of the selected person. */
+        try{
         int selectedIndex = lstPeople.getSelectionModel().getSelectedIndex();  //gets the select spot from the listBox
         lblBox.setText("" + people.get(selectedIndex).getHeight());
         listUpdate();
+        }
+        catch(Exception ex){
+            error("Please select a person from the list.");
+        }
     }
 
     @FXML
     void btnShowJob(ActionEvent event) {
+        /* Shows the job of the selected person. */
+        try{
         int selectedIndex = lstPeople.getSelectionModel().getSelectedIndex();  //gets the select spot from the listBox
         lblBox.setText("" + people.get(selectedIndex).getJob());
         listUpdate();
+        }
+        catch(Exception ex){
+            error("Please select a person from the list.");
+        }
     }   
 
     @FXML
     void btnShowWeight(ActionEvent event) {
+        /* Shows the weight of the selected person. */
+        try{
         int selectedIndex = lstPeople.getSelectionModel().getSelectedIndex();  //gets the select spot from the listBox
         lblBox.setText("" + people.get(selectedIndex).getWeight());
         listUpdate();
+        }
+        catch(Exception ex){
+            error("Please select a person from the list.");
+        }
     }
 
     @FXML
