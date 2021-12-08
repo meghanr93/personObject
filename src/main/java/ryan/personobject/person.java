@@ -13,15 +13,7 @@ public class person {
     private String job;
     private double weight;
     
-    public person(){
-        name="";
-        age=0;
-        height=0;
-        job="";
-        weight=0;
-    }
-    
-    public person(String n,int a,double h,String j,double w){
+    public person(String n,int a,double h,double w,String j){
         setName(n);
         setAge(a);
         setHeight(h);

@@ -15,19 +15,19 @@
          </font>
       </Label>
       <TextField fx:id="txtName" layoutX="60.0" layoutY="85.0" prefHeight="25.0" prefWidth="150.0" />
-      <Label layoutX="60.0" layoutY="124.0" prefHeight="32.0" prefWidth="69.0" text="Age" textFill="WHITE">
+      <Label layoutX="60.0" layoutY="124.0" prefHeight="32.0" prefWidth="100.0" text="Age (years)" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
       <TextField fx:id="txtAge" layoutX="60.0" layoutY="156.0" prefHeight="25.0" prefWidth="150.0" />
-      <Label layoutX="60.0" layoutY="201.0" prefHeight="32.0" prefWidth="69.0" text="Height" textFill="WHITE">
+      <Label layoutX="60.0" layoutY="201.0" prefHeight="32.0" prefWidth="100.0" text="Height (cm)" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
       <TextField fx:id="txtHeight" layoutX="60.0" layoutY="233.0" prefHeight="25.0" prefWidth="150.0" />
-      <Label layoutX="60.0" layoutY="284.0" prefHeight="32.0" prefWidth="69.0" text="Weight" textFill="WHITE">
+      <Label layoutX="60.0" layoutY="284.0" prefHeight="32.0" prefWidth="100.0" text="Weight (kg)" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
@@ -39,7 +39,7 @@
          </font>
       </Label>
       <TextField fx:id="txtJob" layoutX="60.0" layoutY="401.0" prefHeight="25.0" prefWidth="150.0" />
-      <Button layoutX="101.0" layoutY="541.0" mnemonicParsing="false" onAction="#btnAdd" onMouseEntered="#btnHover" onMouseExited="#btnUnhover" prefHeight="35.0" prefWidth="69.0" text="Add">
+      <Button layoutX="101.0" layoutY="457.0" mnemonicParsing="false" onAction="#btnAdd" onMouseEntered="#btnHover" onMouseExited="#btnUnhover" prefHeight="35.0" prefWidth="69.0" text="Add">
          <font>
             <Font size="16.0" />
          </font>
@@ -49,6 +49,22 @@
             <Font size="16.0" />
          </font>
       </Button>
-      <ListView layoutX="300.0" layoutY="46.0" prefHeight="400.0" prefWidth="250.0" />
+      <ListView fx:id="lstPeople" layoutX="300.0" layoutY="46.0" prefHeight="400.0" prefWidth="250.0" />
+      <Label fx:id="lblBox" alignment="CENTER" layoutX="325.0" layoutY="457.0" prefHeight="35.0" prefWidth="200.0" styleClass="windows7" />
+      <Button layoutX="220.0" layoutY="156.0" mnemonicParsing="false" onAction="#btnChangeAge" onMouseEntered="#btnHover" onMouseExited="#btnUnhover" prefHeight="25.0" prefWidth="58.0" text="Change" />
+      <Button layoutX="220.0" layoutY="85.0" mnemonicParsing="false" onAction="#btnChangeName" onMouseEntered="#btnHover" onMouseExited="#btnUnhover" prefHeight="25.0" prefWidth="58.0" text="Change" />
+      <Button layoutX="220.0" layoutY="233.0" mnemonicParsing="false" onAction="#btnChangeHeight" onMouseEntered="#btnHover" onMouseExited="#btnUnhover" prefHeight="25.0" prefWidth="58.0" text="Change" />
+      <Button layoutX="220.0" layoutY="316.0" mnemonicParsing="false" onAction="#btnChangeWeight" onMouseEntered="#btnHover" onMouseExited="#btnUnhover" prefHeight="25.0" prefWidth="58.0" text="Change" />
+      <Button layoutX="220.0" layoutY="401.0" mnemonicParsing="false" onAction="#btnChangeJob" onMouseEntered="#btnHover" onMouseExited="#btnUnhover" prefHeight="25.0" prefWidth="58.0" text="Change" />
+      <Button layoutX="220.0" layoutY="128.0" mnemonicParsing="false" onAction="#btnShowAge" onMouseEntered="#btnHover" onMouseExited="#btnUnhover" prefHeight="25.0" prefWidth="58.0" text="Show" />
+      <Button layoutX="220.0" layoutY="205.0" mnemonicParsing="false" onAction="#btnShowHeight" onMouseEntered="#btnHover" onMouseExited="#btnUnhover" prefHeight="25.0" prefWidth="58.0" text="Show" />
+      <Button layoutX="220.0" layoutY="288.0" mnemonicParsing="false" onAction="#btnShowWeight" onMouseEntered="#btnHover" onMouseExited="#btnUnhover" prefHeight="25.0" prefWidth="58.0" text="Show" />
+      <Button layoutX="220.0" layoutY="373.0" mnemonicParsing="false" onAction="#btnShowJob" onMouseEntered="#btnHover" onMouseExited="#btnUnhover" prefHeight="25.0" prefWidth="58.0" text="Show" />
+      <Button layoutX="220.0" layoutY="459.0" mnemonicParsing="false" onAction="#btnClear" onMouseEntered="#btnHover" onMouseExited="#btnUnhover" prefHeight="32.0" prefWidth="58.0" text="Clear " />
+      <Button layoutX="220.0" layoutY="499.0" mnemonicParsing="false" onAction="#btnClearAll" onMouseEntered="#btnHover" onMouseExited="#btnUnhover" prefHeight="32.0" prefWidth="58.0" text="Clear All">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

@@ -33,9 +33,19 @@ public class FXMLController implements Initializable {
     private TextField txtJob;
 
     @FXML
-    private ListView<?> lstPeople;
+    private ListView lstPeople;
+    @FXML
+    private Label lblBox;
 
-    ArrayList people = new ArrayList();
+    ArrayList<person> people = new ArrayList();
+    
+    void error(String text){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText(text);
+            alert.showAndWait();
+    }
 
     void listUpdate() {
         //Updates the listBox 
@@ -47,16 +57,138 @@ public class FXMLController implements Initializable {
 
     @FXML
     void btnAdd(ActionEvent event) {
+        /* Adds a person to the ArrayList. */
         try {
-            people.add(new person(txtName.getText(), Integer.parseInt(txtAge.getText()), Integer.parseInt(txtHeight.getText()), txtJob.getText(), Integer.parseInt(txtWeight.getText())));
+            if ((Integer.parseInt(txtAge.getText())<=0)||(Integer.parseInt(txtHeight.getText())<=0)||(Integer.parseInt(txtWeight.getText())<=0)){
+               error("Age, Height and Weight cannot be 0 or less."); 
+            }
+            else{
+            people.add(new person(txtName.getText(), Integer.parseInt(txtAge.getText()), Double.parseDouble(txtHeight.getText()), Double.parseDouble(txtWeight.getText()), txtJob.getText()));
             listUpdate();
+            }
         } catch (Exception ex) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Error");
-            alert.setHeaderText(null);
-            alert.setContentText("One or more text fields are invalid. Ensure all text fields are filled in, Age is an Integer and Height and Weight are both numbers.");
-            alert.showAndWait();
+            error("One or more text fields are invalid. Ensure all text fields are filled in, Age is an Integer and Height and Weight are both numbers.");
         }
+    }
+    
+
+    
+    @FXML
+    void btnChangeAge(ActionEvent event) {
+        try{
+        if (Integer.parseInt(txtAge.getText())<=0){
+               error("Age cannot be 0 or less."); 
+            }
+        else{
+            int selectedIndex = lstPeople.getSelectionModel().getSelectedIndex();  //gets the select spot from the listBox
+            people.get(selectedIndex).setAge(Integer.parseInt(txtAge.getText()));
+            listUpdate();
+        }
+        }
+        catch(Exception ex){
+            error("Age text field is invalid. Ensure a valid number is inputted.");
+        }
+    }
+
+    @FXML
+    void btnChangeHeight(ActionEvent event) {
+        try{
+        if (Double.parseDouble(txtHeight.getText())<=0){
+               error("Height cannot be 0 or less."); 
+            }
+        else{
+            int selectedIndex = lstPeople.getSelectionModel().getSelectedIndex();  //gets the select spot from the listBox
+            people.get(selectedIndex).setHeight(Double.parseDouble(txtHeight.getText()));
+            listUpdate();
+        }
+        }
+        catch(Exception ex){
+            error("Height text field is invalid. Ensure a valid number is inputted.");
+        }
+    }
+
+    @FXML
+    void btnChangeJob(ActionEvent event) {
+        try{
+        int selectedIndex = lstPeople.getSelectionModel().getSelectedIndex();  //gets the select spot from the listBox
+        people.get(selectedIndex).setJob(txtJob.getText());
+        listUpdate();
+        }
+        catch(Exception ex){
+            error("Job text field is invalid. Enter a job.");
+        }
+    }
+
+    @FXML
+    void btnChangeName(ActionEvent event) {
+        try{
+        int selectedIndex = lstPeople.getSelectionModel().getSelectedIndex();  //gets the select spot from the listBox
+        people.get(selectedIndex).setName(txtName.getText());
+        listUpdate();
+        }
+        catch(Exception ex){
+            error("Name text field is invalid. Enter a name.");
+        }
+    }
+
+    @FXML
+    void btnChangeWeight(ActionEvent event) {
+        try{
+        if (Double.parseDouble(txtWeight.getText())<=0){
+               error("Weight cannot be 0 or less."); 
+            }
+        else{
+            int selectedIndex = lstPeople.getSelectionModel().getSelectedIndex();  //gets the select spot from the listBox
+            people.get(selectedIndex).setWeight(Double.parseDouble(txtWeight.getText()));
+            listUpdate();
+        }
+        }
+        catch(Exception ex){
+            error("Weight text field is invalid. Ensure a valid number is inputted.");
+        }
+    }
+
+    @FXML
+    void btnClear(ActionEvent event) {
+        /* Removes the selected person from the list. */
+        int selectedIndex = lstPeople.getSelectionModel().getSelectedIndex();  //gets the select spot from the listBox
+        people.remove(selectedIndex);
+        listUpdate();
+    }
+
+    @FXML
+    void btnClearAll(ActionEvent event) {
+        /* Clears the people list. */
+        people.clear();
+        listUpdate();
+    }
+    
+    @FXML
+    void btnShowAge(ActionEvent event) {
+        int selectedIndex = lstPeople.getSelectionModel().getSelectedIndex();  //gets the select spot from the listBox
+        lblBox.setText("" + people.get(selectedIndex).getAge());
+        listUpdate();
+    }
+
+    @FXML
+    void btnShowHeight(ActionEvent event) {
+        int selectedIndex = lstPeople.getSelectionModel().getSelectedIndex();  //gets the select spot from the listBox
+        lblBox.setText("" + people.get(selectedIndex).getHeight());
+        listUpdate();
+    }
+
+    @FXML
+    void btnShowJob(ActionEvent event) {
+        int selectedIndex = lstPeople.getSelectionModel().getSelectedIndex();  //gets the select spot from the listBox
+        lblBox.setText("" + people.get(selectedIndex).getJob());
+        listUpdate();
+    }   
+
+    @FXML
+    void btnShowWeight(ActionEvent event) {
+        int selectedIndex = lstPeople.getSelectionModel().getSelectedIndex();  //gets the select spot from the listBox
+        lblBox.setText("" + people.get(selectedIndex).getWeight());
+        listUpdate();
     }
 
     @FXML
